@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :edit, :update]
+  resources :groups do
+    get 'join' => 'groups#join'
+  end
 
   resources :users do
     resource :relationships, only: [:create, :destroy]
